@@ -8,6 +8,7 @@ module.exports = (event)=>{
             recipient:{id:senderID},
             message:{text:textMessage}
     }
+    console.log('sending message to callMessage Api')    
     callMessageAPI(messageData);
 
 }

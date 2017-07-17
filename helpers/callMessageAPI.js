@@ -2,12 +2,12 @@ const request = require('request');
 
 function callMessageAPI(messageData){
     request({
-        url:'',
+        url:'https://graph.facebook.com/v2.6/me/messages',
         qs:{access_token:process.env.FACEBOOK_ACCESS_TOKEN},
         method:'POST',
         json:messageData,    
-    },(error,responese,body)=>{
-        if(!error && responese){
+    },(error,response,body)=>{
+        if(!error && response.statusCode === 200){
             console.log('message sent sucessfully ')
         }
         console.log('message sent failed')
