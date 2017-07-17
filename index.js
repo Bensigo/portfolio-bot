@@ -2,6 +2,11 @@ const express = require('express'),
      bodyParser = require('body-parser'),
      logger = require('morgan');
 
+     require('dotenv').config()
+
+ //modules 
+ const verification = require('./controllers/verification');    
+
 //making instance of the app 
 const app =express();
 
@@ -20,7 +25,16 @@ app.get('/',(req,res)=>{
 });
 
 //TODO:routes 
+//web hook route for verification
+app.get('/webhook', verification);
 
+
+
+//setting a 404 handler 
+app.use((req,res,next)=>{
+    res.status(404);
+    res.send('<h1>oops 404 page not found :( </h1>');
+})
 
 
 
