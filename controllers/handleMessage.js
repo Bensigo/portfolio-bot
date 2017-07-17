@@ -13,10 +13,10 @@ const processMessage = require('../helpers/processMessage');
 module.exports = (req,res)=>{
     const data = req.body
     if(data.object === 'page'){
-       data.entry.foreach( entry => {
-           entry.messaging.foreach(event=>{
+       data.entry.foreach( (entry) => {
+           entry.messaging.foreach((event)=>{
                if(event.message){
-                processMessage(event)  
+                return processMessage(event)  
                }
            })
        })
