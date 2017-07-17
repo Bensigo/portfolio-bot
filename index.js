@@ -5,7 +5,8 @@ const express = require('express'),
      require('dotenv').config()
 
  //modules 
- const verification = require('./controllers/verification');    
+ const verification = require('./controllers/verification'); 
+ const handleMessage = require('./controllers/handleMessage');    
 
 //making instance of the app 
 const app =express();
@@ -27,6 +28,7 @@ app.get('/',(req,res)=>{
 //TODO:routes 
 //web hook route for verification
 app.get('/webhook', verification);
+app.post('/webhook', handleMessage );
 
 
 
