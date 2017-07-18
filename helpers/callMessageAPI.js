@@ -9,8 +9,10 @@ function callMessageAPI(messageData){
     },(error,response,body)=>{
         if(!error && response.statusCode === 200){
             console.log('message sent sucessfully ')
+        }else{
+            console.log('message sent failed')
         }
-        console.log('message sent failed')
+        
     })   
 }
 module.exports = callMessageAPI;
